@@ -12,7 +12,16 @@ import { gsap } from 'gsap';
 const _tempVec3 = new THREE.Vector3();
 const _tempAxis = new THREE.Vector3(0, 1, 0);
 
-function ParticleBurst({ isPerfect, theme, onComplete }: { isPerfect: boolean; theme: string; onComplete: () => void }) {
+interface WallData {
+  id: number;
+  z: number;
+  holeWidth: number;
+  holeHeight: number;
+  isMoving: boolean;
+  index: number;
+}
+
+function ParticleBurst({ key, isPerfect, theme, onComplete }: { key?: any; isPerfect: boolean; theme: string; onComplete: () => void }) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const effectsLevel = useGameStore((state) => state.effectsLevel);
