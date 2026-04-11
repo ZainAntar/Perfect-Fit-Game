@@ -88,7 +88,7 @@ Katkılar memnuniyetle karşılanır.
 
 Bu proje MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakınız.
 
-## 👨‍💻 Developer
+## Developer
 
 **Zain Antar**
 GitHub: [https://github.com/ZainAntar](https://github.com/ZainAntar)
