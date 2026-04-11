@@ -90,7 +90,7 @@ Contributions are welcome.
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
-## Developer
+## Contact
 
-**Zain Antar**
-GitHub: [https://github.com/ZainAntar](https://github.com/ZainAntar)
+**Zain Antar** 
+Gmail: [antar.zain1@gmail.com](antar.zain1@gmail.com)
