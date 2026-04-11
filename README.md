@@ -1,5 +1,7 @@
 # 🎯 Perfect Fit Game
 
+![Perfect Fit Game Banner](Pf-resized-banner.png)
+
 **Perfect Fit Game** is a fun and engaging browser-based game that tests your reflexes and precision. The objective is to stop the moving object at the perfect moment to achieve the ideal alignment. The better your timing, the higher your score.
 
 ## 🚀 Live Demo
