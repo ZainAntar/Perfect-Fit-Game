@@ -3,10 +3,18 @@ export const playSound = (type: 'pass' | 'perfect' | 'fail' | 'click') => {
   if (state && !state.sound) return;
 
   try {
-    const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-    if (!AudioContext) return;
+    const AudioContextClass = (window as any).AudioContext || (window as any).webkitAudioContext;
+    if (!AudioContextClass) return;
+
+    if (!(window as any).__pf_audio_ctx) {
+      (window as any).__pf_audio_ctx = new AudioContextClass();
+    }
+    const ctx = (window as any).__pf_audio_ctx as AudioContext;
+
+    if (ctx.state === 'suspended') {
+      ctx.resume();
+    }
     
-    const ctx = new AudioContext();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     

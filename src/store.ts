@@ -135,8 +135,14 @@ export const useGameStore = create<GameState>()(
       setHasSeenTutorial: () => set({ hasSeenTutorial: true }),
       setTutorialStep: (step) => set({ tutorialStep: step }),
       resetTutorial: () => set({ tutorialStep: 0 }),
-      setControlMode: (controlMode) => set({ controlMode }),
-      setSensitivity: (sensitivity) => set({ sensitivity }),
+      setControlMode: (controlMode) => set((state) => {
+        if (state.controlMode === controlMode) return state;
+        return { controlMode };
+      }),
+      setSensitivity: (sensitivity) => set((state) => {
+        if (state.sensitivity === sensitivity) return state;
+        return { sensitivity };
+      }),
       setPlayerSizeIndex: (playerSizeIndex) => set({ playerSizeIndex }),
       incrementCombo: () => set((state) => ({ combo: state.combo + 1 })),
       resetCombo: () => set({ combo: 0 }),

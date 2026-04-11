@@ -8,20 +8,15 @@ import { playSound } from './sound';
 import { LEVELS } from './levels';
 import { gsap } from 'gsap';
 
-interface WallData {
-  id: number;
-  index: number;
-  z: number;
-  holeWidth: number;
-  holeHeight: number;
-  isMoving: boolean;
-}
+// Pre-allocate to avoid GC in hot loops
+const _tempVec3 = new THREE.Vector3();
+const _tempAxis = new THREE.Vector3(0, 1, 0);
 
 function ParticleBurst({ isPerfect, theme, onComplete }: { isPerfect: boolean; theme: string; onComplete: () => void }) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const effectsLevel = useGameStore((state) => state.effectsLevel);
-  const multiplier = effectsLevel === 'High' ? 1.0 : effectsLevel === 'Low' ? 0.3 : 0.7;
+  const multiplier = effectsLevel === 'High' ? 1.0 : effectsLevel === 'Low' ? 0.2 : 0.6;
   const count = Math.floor((isPerfect ? 80 : 25) * multiplier);
   
   const particles = useMemo(() => {
@@ -92,7 +87,8 @@ function ParticleBurst({ isPerfect, theme, onComplete }: { isPerfect: boolean; t
         
         if (isPerfect) {
           if (theme === 'desert') {
-            p.vel.applyAxisAngle(new THREE.Vector3(0,1,0), delta * 5);
+            _tempAxis.set(0, 1, 0);
+            p.vel.applyAxisAngle(_tempAxis, delta * 5);
           } else if (theme === 'beach') {
             p.vel.y -= delta * 30;
           } else if (theme === 'lava') {
@@ -100,7 +96,8 @@ function ParticleBurst({ isPerfect, theme, onComplete }: { isPerfect: boolean; t
           }
         }
 
-        p.pos.add(p.vel.clone().multiplyScalar(delta));
+        _tempVec3.copy(p.vel).multiplyScalar(delta);
+        p.pos.add(_tempVec3);
         dummy.position.copy(p.pos);
         dummy.scale.setScalar(p.scale * p.life);
         dummy.rotation.x += p.rotSpeed * delta;

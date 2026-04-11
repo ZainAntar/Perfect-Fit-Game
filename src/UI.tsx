@@ -64,7 +64,6 @@ export function UI() {
   const [diamondPop, setDiamondPop] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [continueTimer, setContinueTimer] = useState(7);
-  const [showPrivacyTerms, setShowPrivacyTerms] = useState(false);
   
   useEffect(() => {
     if (showSplash) {
@@ -365,14 +364,19 @@ export function UI() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
-            className="absolute inset-0 bg-io-bg flex flex-col items-center justify-center p-6 pointer-events-auto overflow-y-auto"
+            className="absolute inset-0 bg-io-bg flex flex-col pointer-events-auto"
           >
-            <div className="bg-white p-8 rounded-3xl w-full max-w-md shadow-2xl relative my-auto mt-20">
-              <button onClick={() => { handleSoundClick(); setStatus('menu'); }} className="absolute top-4 right-4 p-2 bg-io-bg rounded-full text-io-dark">
-                <X size={20} />
+            {/* Sticky Header */}
+            <div className="flex justify-between items-center p-6 bg-white shrink-0 shadow-sm z-10">
+              <h2 className="text-3xl font-black text-io-dark">{getTranslation(language, 'settings').toUpperCase()}</h2>
+              <button onClick={() => { handleSoundClick(); setStatus('menu'); }} className="p-2 bg-io-bg rounded-full text-io-dark">
+                <X size={24} />
               </button>
-              <h2 className="text-3xl font-black text-io-dark mb-8 text-center">{getTranslation(language, 'settings').toUpperCase()}</h2>
-              <div className="space-y-4">
+            </div>
+
+            {/* Scrollable Body */}
+            <div className="flex-1 overflow-y-auto p-6">
+              <div className="space-y-4 max-w-md mx-auto">
                 <SelectRow label={getTranslation(language, 'controlMode')} value={controlMode} options={['swipe', 'buttons']} onChange={(val) => setControlMode(val as any)} />
                 <SliderRow label={getTranslation(language, 'sensitivity')} value={sensitivity} min={50} max={200} onChange={setSensitivity} />
                 <ToggleRow label={getTranslation(language, 'sound')} value={sound} onClick={toggleSound} />
@@ -382,10 +386,13 @@ export function UI() {
                 <ToggleRow label={getTranslation(language, 'feverEffects')} value={feverEffects} onClick={toggleFeverEffects} />
                 <SelectRow label={getTranslation(language, 'language')} value={language} options={['English', 'Spanish', 'French', 'German', 'Italian', 'Portuguese', 'Russian', 'Japanese', 'Korean', 'Chinese']} onChange={setLanguage} />
                 
-                <div className="pt-4 border-t border-io-bg">
+                <div className="pt-4 border-t border-slate-200">
                   <button 
-                    onClick={() => { handleSoundClick(); setShowPrivacyTerms(true); }}
-                    className="w-full py-3 bg-io-bg text-io-dark font-bold rounded-xl mb-3 hover:bg-slate-200 transition-colors"
+                    onClick={() => { 
+                      handleSoundClick(); 
+                      window.open('https://github.com/zainantar08/Perfect-Fit-Game/blob/main/privacy.md', '_blank');
+                    }}
+                    className="w-full py-4 bg-white text-io-dark font-bold rounded-2xl mb-3 shadow-md hover:bg-slate-50 transition-colors"
                   >
                     {getTranslation(language, 'privacyTerms')}
                   </button>
@@ -395,7 +402,7 @@ export function UI() {
                       useGameStore.setState({ hasContinued: false });
                       setStatus('menu');
                     }} 
-                    className="w-full py-3 bg-red-100 text-red-600 font-bold rounded-xl hover:bg-red-200 transition-colors"
+                    className="w-full py-4 bg-red-50 text-red-500 font-bold rounded-2xl hover:bg-red-100 transition-colors"
                   >
                     {getTranslation(language, 'exit')}
                   </button>
@@ -405,87 +412,7 @@ export function UI() {
           </motion.div>
         )}
 
-        {showPrivacyTerms && (
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            className="absolute inset-0 bg-io-bg flex flex-col items-center justify-center p-6 pointer-events-auto z-50"
-          >
-            <div className="bg-white p-8 rounded-3xl w-full max-w-2xl shadow-2xl relative h-[80vh] flex flex-col">
-              <button onClick={() => { handleSoundClick(); setShowPrivacyTerms(false); }} className="absolute top-4 right-4 p-2 bg-io-bg rounded-full text-io-dark z-10">
-                <X size={20} />
-              </button>
-              <h2 className="text-3xl font-black text-io-dark mb-6 text-center shrink-0">{getTranslation(language, 'privacyTerms')}</h2>
-              <div className="overflow-y-auto pr-4 space-y-6 text-io-dark font-sans">
-                <div>
-                  <h3 className="text-xl font-bold mb-2">{getTranslation(language, 'privacyPolicy')}</h3>
-                  <p className="text-sm opacity-70 mb-4">Last updated: March 2026</p>
-                  <p className="mb-4">This Privacy Policy explains how PERFECT FIT ("we", "our", or "us") collects, uses, and protects user information.</p>
-                  
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">1. Information We Collect</h4>
-                  <p className="mb-2">We do not collect personally identifiable information. However, we may collect non-personal data such as:</p>
-                  <ul className="list-disc pl-5 mb-4 space-y-1">
-                    <li>Device information (model, OS version)</li>
-                    <li>Gameplay data (scores, progress)</li>
-                    <li>Advertising identifiers (for ads)</li>
-                  </ul>
 
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">2. Advertising</h4>
-                  <p className="mb-2">Our game may display advertisements provided by third-party services (e.g., Google AdMob). These services may use Cookies and Advertising ID to show relevant ads. We do not control how third-party services collect or use data.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">3. Analytics</h4>
-                  <p className="mb-2">We may use analytics tools to understand Game performance and Player behavior. This helps us improve the game experience.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">4. Data Usage</h4>
-                  <p className="mb-2">Collected data is used to Improve gameplay, Fix bugs, and Optimize performance.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">5. Children's Privacy</h4>
-                  <p className="mb-2">Our game is suitable for general audiences. We do not knowingly collect personal data from children.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">6. Security</h4>
-                  <p className="mb-2">We take reasonable steps to protect user data, but no method is 100% secure.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">7. Changes</h4>
-                  <p className="mb-2">We may update this Privacy Policy. Changes will be posted here.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">8. Contact</h4>
-                  <p className="mb-6">If you have any questions, contact us at: zainantar08@gmail.com</p>
-                </div>
-
-                <div className="border-t border-io-bg pt-6">
-                  <h3 className="text-xl font-bold mb-2">{getTranslation(language, 'termsOfService')}</h3>
-                  <p className="text-sm opacity-70 mb-4">Last updated: March 2026</p>
-                  <p className="mb-4">By using PERFECT FIT, you agree to the following terms:</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">1. Usage</h4>
-                  <p className="mb-2">You agree to use the game for personal, non-commercial purposes only.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">2. Gameplay</h4>
-                  <p className="mb-2">We may update, modify, or remove features at any time without notice.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">3. Ads</h4>
-                  <p className="mb-2">The game may include advertisements. By playing, you accept that ads may be shown.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">4. Limitation of Liability</h4>
-                  <p className="mb-2">We are not responsible for Data loss, Device issues, or Any damages resulting from use of the game.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">5. Intellectual Property</h4>
-                  <p className="mb-2">All content in the game (graphics, design, code) belongs to us and may not be copied or reused.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">6. Termination</h4>
-                  <p className="mb-2">We may restrict or terminate access to the game if terms are violated.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">7. Changes</h4>
-                  <p className="mb-2">We may update these terms at any time.</p>
-
-                  <h4 className="font-bold mt-4 mb-2 uppercase text-sm tracking-wider">8. Contact</h4>
-                  <p className="mb-2">For questions, contact: zainantar08@gmail.com</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
 
         {status === 'continue' && (
           <motion.div

@@ -3,6 +3,9 @@ import { useFrame } from '@react-three/fiber';
 import { useGameStore, Trail as TrailType } from './store';
 import * as THREE from 'three';
 
+// Pre-allocate to avoid GC in hot loops
+const _trailTempVec3 = new THREE.Vector3();
+
 export const playerRef = {
   current: { 
     width: 2, height: 2, 
@@ -97,7 +100,8 @@ function CustomTrail({ type, playerMeshRef }: { type: TrailType; playerMeshRef: 
     particles.current.forEach((p, i) => {
       if (p.life > 0) {
         p.life -= delta * 2;
-        p.pos.add(p.vel.clone().multiplyScalar(delta));
+        _trailTempVec3.copy(p.vel).multiplyScalar(delta);
+        p.pos.add(_trailTempVec3);
         
         if (type === 'jelly') {
           p.scale = Math.sin(p.life * Math.PI) * 0.8;
