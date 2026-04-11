@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+  
+  --color-io-bg: #f0f4f8;
+  --color-io-blue: #3b82f6;
+  --color-io-orange: #f97316;
+  --color-io-green: #22c55e;
+  --color-io-dark: #1e293b;
+}
+
+@keyframes countdown {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 283; }
+}
