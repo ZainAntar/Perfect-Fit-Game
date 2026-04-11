@@ -1,20 +1,20 @@
 # 🎯 Perfect Fit Game
 
-**Perfect Fit Game**, refleks ve hassasiyetinizi test eden eğlenceli bir tarayıcı oyunudur. Oyuncunun amacı, hareket eden nesneyi doğru zamanda durdurarak mükemmel uyumu yakalamaktır. Zamanlamanız ne kadar iyi olursa, puanınız da o kadar yüksek olur.
+**Perfect Fit Game** is a fun and engaging browser-based game that tests your reflexes and precision. The objective is to stop the moving object at the perfect moment to achieve the ideal alignment. The better your timing, the higher your score.
 
 ## 🚀 Live Demo
 
-Oyunu buradan deneyebilirsiniz:
+Try the game here:
 🔗 [https://perfect-fit-sage.vercel.app](https://perfect-fit-game.vercel.app)
 
 ## ✨ Features
 
-* Basit ve bağımlılık yapıcı oynanış
-* Hassasiyet ve zamanlama odaklı mekanikler
-* Modern ve minimalist kullanıcı arayüzü
-* Mobil ve masaüstü uyumlu tasarım
-* Hızlı ve optimize edilmiş performans
-* Tarayıcı üzerinden çalışabilme (kurulum gerektirmez)
+* Simple yet addictive gameplay
+* Precision and timing-based mechanics
+* Modern and minimalist user interface
+* Responsive design for mobile and desktop
+* Fast and optimized performance
+* Runs directly in the browser with no installation required
 
 ## 🛠️ Technologies Used
 
@@ -38,55 +38,55 @@ Perfect-Fit-Game/
 
 ## 🎮 How to Play
 
-1. Oyunu başlatın.
-2. Hareket eden nesneyi dikkatlice takip edin.
-3. Doğru anda tıklayarak veya dokunarak durdurun.
-4. Mükemmel uyumu yakalayarak en yüksek skoru elde edin.
+1. Start the game.
+2. Carefully follow the moving object.
+3. Click or tap at the perfect moment to stop it.
+4. Achieve the perfect fit and aim for the highest score.
 
 ## 💻 Installation
 
-Projeyi yerel ortamda çalıştırmak için aşağıdaki adımları izleyin:
+To run the project locally, follow these steps:
 
 ```bash
 git clone https://github.com/ZainAntar/Perfect-Fit-Game.git
 cd Perfect-Fit-Game
 ```
 
-Ardından `index.html` dosyasını tarayıcınızda açın.
+Then open the `index.html` file in your web browser.
 
 ## 🤝 Contributing
 
-Katkılar memnuniyetle karşılanır.
+Contributions are welcome.
 
-1. Bu depoyu fork edin.
-2. Yeni bir dal oluşturun:
+1. Fork the repository.
+2. Create a new branch:
 
    ```bash
    git checkout -b feature/your-feature-name
    ```
-3. Değişikliklerinizi kaydedin:
+3. Commit your changes:
 
    ```bash
    git commit -m "Add: Your feature"
    ```
-4. Dalınızı gönderin:
+4. Push to your branch:
 
    ```bash
    git push origin feature/your-feature-name
    ```
-5. Bir Pull Request oluşturun.
+5. Open a Pull Request.
 
 ## 🗺️ Roadmap
 
-* Ses efektleri ve müzik
-* Liderlik tablosu (Leaderboard)
-* Yeni temalar ve animasyonlar
-* Geliştirilmiş mobil deneyim
-* Çoklu dil desteği
+* Sound effects and background music
+* Leaderboard system
+* New themes and animations
+* Enhanced mobile experience
+* Multi-language support
 
 ## 📜 License
 
-Bu proje MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakınız.
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ## Developer
 
