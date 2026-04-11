@@ -390,7 +390,7 @@ export function UI() {
                   <button 
                     onClick={() => { 
                       handleSoundClick(); 
-                      window.open('https://github.com/zainantar08/Perfect-Fit-Game/blob/main/privacy.md', '_blank');
+                      window.open('https://github.com/ZainAntar/Perfect-Fit-Game/blob/main/privacy.md', '_blank');
                     }}
                     className="w-full py-4 bg-white text-io-dark font-bold rounded-2xl mb-3 shadow-md hover:bg-slate-50 transition-colors"
                   >
