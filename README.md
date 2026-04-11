@@ -5,7 +5,7 @@
 ## 🚀 Live Demo
 
 Oyunu buradan deneyebilirsiniz:
-🔗 [https://perfect-fit-sage.vercel.app](https://perfect-fit-sage.vercel.app)
+🔗 [https://perfect-fit-sage.vercel.app](https://perfect-fit-game.vercel.app)
 
 ## ✨ Features
 
