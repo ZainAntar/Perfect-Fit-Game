@@ -1,73 +1,94 @@
-<div align="center">
-<img width="1200" height="475" alt="Perfect Fit Banner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🎯 Perfect Fit Game
 
-# Perfect Fit — Profesyonel Bulmaca Oyunu
+**Perfect Fit Game** is a fun and engaging browser-based game that tests your reflexes and precision. The objective is to stop the moving object at the perfect moment to achieve the ideal alignment. The better your timing, the higher your score.
 
-Kısa açıklama
-- *Perfect Fit* hızlı tempolu, mantık ve çeviklik gerektiren bir bulmaca/platform oyunudur. Oyuncular şekilleri doğru pozisyona yerleştirerek seviyeleri tamamlar, engelleri aşar ve en iyi puanı elde etmeye çalışır.
+## 🚀 Live Demo
 
-**Özellikler**
-- Düşük gecikmeli, akıcı oynanış
-- Katmanlandırılmış seviye tasarımları ve zorluk eğrisi
-- Klavye tabanlı kontroller ve sezgisel arayüz
-- Ses efektleri ve basit müzik döngüsü
-- Kolayca genişletilebilir TypeScript + Vite kod tabanı
+Try the game here:
+🔗 [https://perfect-fit-sage.vercel.app](https://perfect-fit-game.vercel.app)
 
-## Nasıl Oynanır
-- Amaç: Her seviyede verilen biçimleri doğru yere yerleştirip çıkışı açmak.
-- Her seviye farklı engeller ve hareketli duvarlar içerir.
-- Puanlama: Hız, doğru yerleştirme ve bonus toplama ile hesaplanır.
+## ✨ Features
 
-## Kontroller
-- Hareket: `A` / `D` veya `←` / `→`
-- Zıplama: `Space` veya `W`
-- Etkileşim / Döndürme: `E`
-- Menü / Duraklat: `Esc`
+* Simple yet addictive gameplay
+* Precision and timing-based mechanics
+* Modern and minimalist user interface
+* Responsive design for mobile and desktop
+* Fast and optimized performance
+* Runs directly in the browser with no installation required
 
-## Geliştirici Kurulumu
-**Gereksinimler:** Node.js (LTS önerilir) ve `npm` veya `pnpm`/`yarn`.
+## 🛠️ Technologies Used
 
-1. Depoyu klonlayın:
+* HTML5
+* CSS3
+* JavaScript
+* Vercel (Deployment)
 
-   `git clone <repo-url>`
-   `cd Perfect-Fit-Game`
+## 📁 Project Structure
 
-2. Bağımlılıkları yükleyin:
+```
+Perfect-Fit-Game/
+│── index.html
+│── style.css
+│── script.js
+│── assets/
+│   ├── images/
+│   └── sounds/
+└── README.md
+```
 
-   `npm install`
+## 🎮 How to Play
 
-3. Geliştirme sunucusunu başlatın:
+1. Start the game.
+2. Carefully follow the moving object.
+3. Click or tap at the perfect moment to stop it.
+4. Achieve the perfect fit and aim for the highest score.
 
-   `npm run dev`
+## 💻 Installation
 
-4. Üretim için build oluşturma:
+To run the project locally, follow these steps:
 
-   `npm run build`
-   `npm run preview` (üretim önizlemesi)
+```bash
+git clone https://github.com/ZainAntar/Perfect-Fit-Game.git
+cd Perfect-Fit-Game
+```
 
-## Proje Yapısı (kısa)
-- `src/` — Oyun kaynak kodu
-  - `main.tsx`, `App.tsx` — Başlangıç ve uygulama kabuğu
-  - `World.tsx`, `Player.tsx`, `Wall.tsx` — Oyun nesneleri ve mantık
-  - `levels.ts` — Seviye tanımları
-  - `sound.ts` — Ses yönetimi
-  - `store.ts` — Oyun durumu
-  - `UI.tsx` — Kullanıcı arayüzü
+Then open the `index.html` file in your web browser.
 
-## Öneriler ve Geliştirme Notları
-- Yeni seviye eklerken `levels.ts` formatını takip edin.
-- Sesleri küçük, döngüsel parçalar halinde ekleyin; `sound.ts` üzerinden yönetin.
-- Performans: Fizik ve çarpışma çözümlerini optimize etmek için `requestAnimationFrame` kullanın.
+## 🤝 Contributing
 
-## Katkıda Bulunma
-Katkılara açığız. Bug raporu, iyileştirme veya yeni seviye teklifleri için lütfen bir issue açın veya pull request gönderin. Kodlama standartlarına uymak için TypeScript tiplerini ve mevcut stil rehberini takip edin.
+Contributions are welcome.
 
-## Lisans
-Bu proje MIT lisansı altında yayınlanmıştır. (LICENSE dosyası eklemeyi unutmayın.)
+1. Fork the repository.
+2. Create a new branch:
 
-## İletişim
-Proje sahibi ve iletişim bilgileri için repository sahip profilini kullanın.
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
 
----
-Geri bildirim veya profesyonel metin düzenlemeleri isterseniz, README üzerinde daha fazla ince ayar yapabilirim.
+   ```bash
+   git commit -m "Add: Your feature"
+   ```
+4. Push to your branch:
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request.
+
+## 🗺️ Roadmap
+
+* Sound effects and background music
+* Leaderboard system
+* New themes and animations
+* Enhanced mobile experience
+* Multi-language support
+
+## 📜 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+## Developer
+
+**Zain Antar**
+GitHub: [https://github.com/ZainAntar](https://github.com/ZainAntar)
