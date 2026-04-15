@@ -4,9 +4,9 @@ import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
-const _geometryBox = new THREE.Box3();
-const _geometryCenter = new THREE.Vector3();
-const _geometrySize = new THREE.Vector3();
+const tempBox = new THREE.Box3();
+const tempCenter = new THREE.Vector3();
+const tempSize = new THREE.Vector3();
 
 export function useNormalizedObjGeometry(path: string) {
   const object = useLoader(OBJLoader, path);
@@ -40,13 +40,13 @@ export function useNormalizedObjGeometry(path: string) {
       return geometry;
     }
 
-    _geometryBox.copy(geometry.boundingBox);
-    _geometryBox.getCenter(_geometryCenter);
-    _geometryBox.getSize(_geometrySize);
+    tempBox.copy(geometry.boundingBox);
+    tempBox.getCenter(tempCenter);
+    tempBox.getSize(tempSize);
 
-    const maxDimension = Math.max(_geometrySize.x, _geometrySize.y, _geometrySize.z) || 1;
+    const maxDimension = Math.max(tempSize.x, tempSize.y, tempSize.z) || 1;
 
-    geometry.translate(-_geometryCenter.x, -_geometryCenter.y, -_geometryCenter.z);
+    geometry.translate(-tempCenter.x, -tempCenter.y, -tempCenter.z);
     geometry.scale(1 / maxDimension, 1 / maxDimension, 1 / maxDimension);
     geometry.computeVertexNormals();
 
