@@ -2,6 +2,7 @@ import { useLoader } from '@react-three/fiber';
 import { useMemo } from 'react';
 import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 const _geometryBox = new THREE.Box3();
 const _geometryCenter = new THREE.Vector3();
@@ -13,18 +14,26 @@ export function useNormalizedObjGeometry(path: string) {
   return useMemo(() => {
     object.updateMatrixWorld(true);
 
-    let sourceGeometry: THREE.BufferGeometry | null = null;
+    const sourceGeometries: THREE.BufferGeometry[] = [];
 
     object.traverse((child) => {
-      if (sourceGeometry || !(child instanceof THREE.Mesh) || !child.geometry) {
+      if (!(child instanceof THREE.Mesh) || !child.geometry) {
         return;
       }
 
-      sourceGeometry = child.geometry.clone();
-      sourceGeometry.applyMatrix4(child.matrixWorld);
+      const geometry = child.geometry.clone();
+      geometry.applyMatrix4(child.matrixWorld);
+      sourceGeometries.push(geometry);
     });
 
-    const geometry = sourceGeometry ?? new THREE.BoxGeometry(1, 1, 1);
+    if (sourceGeometries.length === 0) {
+      console.warn(`No mesh geometry found in OBJ asset: ${path}`);
+      return new THREE.BoxGeometry(1, 1, 1);
+    }
+
+    const geometry = sourceGeometries.length === 1
+      ? sourceGeometries[0]
+      : mergeGeometries(sourceGeometries, false) ?? sourceGeometries[0];
 
     geometry.computeBoundingBox();
     if (!geometry.boundingBox) {
