@@ -261,7 +261,7 @@ export function UI() {
 
             <div className="flex flex-col gap-4 items-center w-full max-w-xs">
               <motion.button
-                onClick={() => { handleSoundClick(); setStatus('playing'); }}
+                onClick={() => { handleSoundClick(); resetGame(); }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-io-green text-white px-12 py-6 rounded-full font-black text-2xl flex items-center justify-center gap-3 shadow-lg hover:bg-green-600 transition-colors"
@@ -423,23 +423,25 @@ export function UI() {
             <motion.div
               initial={{ scale: 0.8, y: 50 }}
               animate={{ scale: 1, y: 0 }}
-              className="flex flex-col items-center text-center max-w-sm w-full mx-4"
+              className="flex flex-col items-center text-center max-w-sm w-full mx-4 bg-white p-8 rounded-3xl shadow-2xl pointer-events-auto"
             >
               <h2 className="text-3xl font-serif text-deep-charcoal mb-2">{getTranslation(language, 'continue')}?</h2>
+              <p className="text-sm text-io-dark/60 mb-4 font-sans">Watch a short ad to continue from where you left off.</p>
               
-              <div className="relative w-32 h-32 my-8 flex items-center justify-center">
+              <div className="relative w-36 h-36 my-6 flex items-center justify-center">
                 <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" className="text-deep-charcoal/20" strokeWidth="8" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" className="text-deep-charcoal/10" strokeWidth="10" />
                   <circle 
                     cx="50" cy="50" r="45" 
                     fill="none" 
                     stroke="currentColor" 
-                    className="text-muted-gold" 
-                    strokeWidth="8" 
+                    className="text-io-blue" 
+                    strokeWidth="10" 
                     strokeDasharray={283}
                     strokeDashoffset={0}
                     style={{
-                      animation: 'countdown 7s linear forwards'
+                      animation: 'countdown 7s linear forwards',
+                      filter: 'drop-shadow(0 6px 12px rgba(59,130,246,0.18))'
                     }}
                   />
                 </svg>
@@ -453,11 +455,22 @@ export function UI() {
                     continueGame();
                   }, 1000);
                 }}
-                className="w-full bg-deep-charcoal text-cream py-4 font-sans text-xl flex items-center justify-center gap-2 hover:bg-muted-gold transition-all mb-4"
+                className="w-full bg-gradient-to-r from-io-green to-emerald-500 text-white px-6 py-4 rounded-full font-black text-xl flex items-center justify-center gap-3 shadow-2xl hover:brightness-105 transition-all mb-3"
               >
-                <Video size={24} />
-                {getTranslation(language, 'watchAd')}
+                <span className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
+                  <Video size={18} />
+                </span>
+                <span>{getTranslation(language, 'watchAd')}</span>
               </button>
+
+              <motion.button
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                onClick={() => { handleSoundClick(); resetGame(); }}
+                className="text-deep-charcoal/60 font-sans font-bold py-2 px-4 hover:text-deep-charcoal transition-colors"
+              >
+                {getTranslation(language, 'noThanks')}
+              </motion.button>
 
               <AnimatePresence>
                 {continueTimer <= 5 && (
@@ -465,7 +478,7 @@ export function UI() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     onClick={() => { handleSoundClick(); resetGame(); }}
-                    className="text-deep-charcoal/60 font-sans font-bold py-2 px-4 hover:text-deep-charcoal transition-colors"
+                    className="bg-io-bg py-2 px-4 rounded-full text-deep-charcoal/60 font-sans font-bold hover:text-deep-charcoal transition-colors"
                   >
                     {getTranslation(language, 'noThanks')}
                   </motion.button>
