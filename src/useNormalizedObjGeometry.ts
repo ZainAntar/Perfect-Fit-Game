@@ -33,7 +33,7 @@ export function useNormalizedObjGeometry(path: string) {
 
     const geometry = sourceGeometries.length === 1
       ? sourceGeometries[0]
-      : mergeGeometries(sourceGeometries, false) ?? sourceGeometries[0];
+      : mergeGeometries(sourceGeometries, false) ?? sourceGeometries[0] ?? new THREE.BoxGeometry(1, 1, 1);
 
     geometry.computeBoundingBox();
     if (!geometry.boundingBox) {
@@ -51,5 +51,5 @@ export function useNormalizedObjGeometry(path: string) {
     geometry.computeVertexNormals();
 
     return geometry;
-  }, [object]);
+  }, [object, path]);
 }
