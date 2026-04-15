@@ -2,7 +2,7 @@
 
 Son güncelleme: 11 Nisan 2026
 
-PERFECT FIT ("biz", "bizim" veya "bize") olarak, kullanıcı bilgilerini nasıl topladığımızı, kullandığımızı ve koruduğumuzu bu Gizlilik Politikası ile açıklıyoruz.
+PERFECT FIT geliştiricileri olarak, kullanıcı bilgilerini nasıl topladığımızı, kullandığımızı ve koruduğumuzu bu Gizlilik Politikası ile açıklıyoruz.
 
 ### 1. Topladığımız Bilgiler
 Kişisel olarak tanımlanabilir bilgileri toplandırılmıyoruz. Ancak, aşağıdakiler gibi kişisel olmayan verileri toplayabiliriz:

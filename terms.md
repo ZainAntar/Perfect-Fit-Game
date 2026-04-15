@@ -26,4 +26,4 @@ Koşullar ihlal edilirse oyuna erişimi kısıtlayabilir veya sonlandırabiliriz
 Bu koşulları herhangi bir zamanda güncelleyebiliriz.
 
 ### 8. İletişim
-Sorularınız için iletişim: zainantar08@gmail.com
+Sorularınız için iletişim: antar.zain1@gmail.com
