@@ -2,7 +2,7 @@
 
 ![Perfect Fit Game Banner](PF-Repo-Banner.png)
 
-Perfect Fit Game is a fast-paced 3D browser game focused on timing and shape matching.
+Perfect Fit Game is a fast-paced 3D game focused on timing and shape matching.
 Resize your player block to pass through incoming wall holes, build combo, and collect diamonds.
 
 ## Live Demo 🚀
@@ -22,7 +22,7 @@ https://perfect-fit-game.vercel.app
 - Multilingual UI support
 - Mobile and desktop friendly controls
 
-## Tech Stack
+## Tech Stack 🛠️
 
 - React 19
 - TypeScript
@@ -45,7 +45,7 @@ https://perfect-fit-game.vercel.app
 5. Difficulty increases as speed and level progress.
 6. If you crash, the game ends or shows the continue prompt (when eligible).
 
-## Local Setup
+## Local Setup 💻
 
 ```bash
 git clone https://github.com/ZainAntar/Perfect-Fit-Game.git
@@ -56,50 +56,17 @@ npm run dev
 
 The dev server runs on port 3000 by default.
 
-## Build for Production
-
-```bash
-npm run build
-npm run preview
-```
-
-## Available Scripts
-
-- npm run dev: starts the Vite dev server
-- npm run build: creates a production build
-- npm run preview: previews the production build locally
-- npm run lint: runs TypeScript type checking
-
-## Project Structure (Summary)
-
-```text
-Perfect-Fit-Game/
-├─ src/
-│  ├─ App.tsx
-│  ├─ World.tsx
-│  ├─ Player.tsx
-│  ├─ UI.tsx
-│  ├─ store.ts
-│  ├─ levels.ts
-│  └─ ...
-├─ public/models/
-├─ pf-assets/
-├─ index.html
-├─ vite.config.ts
-└─ package.json
-```
-
-## Privacy and Terms
+## Privacy and Terms ⚖️
 
 - Privacy policy: privacy.md
 - Terms of service: terms.md
 
-## Contributing
+## Contributing 🤝
 
 Contributions are welcome.
 Please open a Pull Request from a dedicated feature branch.
 
-## Contact
+## Contact 📫
 
 Zain Antar
 antar.zain1@gmail.com
