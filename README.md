@@ -1,76 +1,105 @@
-# 🎯 Perfect Fit Game
+# Perfect Fit Game
 
 ![Perfect Fit Game Banner](PF-Repo-Banner.png)
 
-**Perfect Fit Game** is a fun and engaging browser-based game that tests your reflexes and precision. The objective is to stop the moving object at the perfect moment to achieve the ideal alignment. The better your timing, the higher your score.
+Perfect Fit Game is a fast-paced 3D browser game focused on timing and shape matching.
+Resize your player block to pass through incoming wall holes, build combo, and collect diamonds.
 
-## 🚀 Live Demo
+## Live Demo
 
-Try the game here:
-🔗 [https://perfect-fit-sage.vercel.app](https://perfect-fit-game.vercel.app)
+Play online:
+https://perfect-fit-game.vercel.app
 
-## ✨ Features
+## Features
 
-* Simple yet addictive gameplay
-* Precision and timing-based mechanics
-* Modern and minimalist user interface
-* Responsive design for mobile and desktop
-* Fast and optimized performance
-* Runs directly in the browser with no installation required
+- 3D gameplay powered by React Three Fiber
+- Reflex-based size-matching mechanic
+- Combo scoring with increasing speed
+- 8 unlockable themes and 8 trail effects
+- In-game store using diamonds as currency
+- Continue screen flow for high-score runs
+- Settings for sound, haptics, effects, camera shake, and controls
+- Multilingual UI support
+- Mobile and desktop friendly controls
 
-## 🎮 How to Play
+## Tech Stack
 
-1. Start the game.
-2. Carefully follow the moving object.
-3. Click or tap at the perfect moment to stop it.
-4. Achieve the perfect fit and aim for the highest score.
+- React 19
+- TypeScript
+- Vite 6
+- Three.js
+- @react-three/fiber
+- @react-three/drei
+- Zustand (with persistent state)
+- Tailwind CSS v4
+- Framer Motion
 
-## 💻 Installation
+## Gameplay
 
-To run the project locally, follow these steps:
+1. Start from the main menu.
+2. Adjust the player block size to match each wall opening.
+3. Use one of the available control modes:
+   - Swipe mode: swipe up/down to resize.
+   - Buttons mode: use on-screen arrows.
+4. Pass walls to earn score and diamonds.
+5. Difficulty increases as speed and level progress.
+6. If you crash, the game ends or shows the continue prompt (when eligible).
+
+## Local Setup
 
 ```bash
 git clone https://github.com/ZainAntar/Perfect-Fit-Game.git
 cd Perfect-Fit-Game
+npm install
+npm run dev
 ```
 
-Then open the `index.html` file in your web browser.
+The dev server runs on port 3000 by default.
 
-## 🤝 Contributing
+## Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## Available Scripts
+
+- npm run dev: starts the Vite dev server
+- npm run build: creates a production build
+- npm run preview: previews the production build locally
+- npm run lint: runs TypeScript type checking
+
+## Project Structure (Summary)
+
+```text
+Perfect-Fit-Game/
+├─ src/
+│  ├─ App.tsx
+│  ├─ World.tsx
+│  ├─ Player.tsx
+│  ├─ UI.tsx
+│  ├─ store.ts
+│  ├─ levels.ts
+│  └─ ...
+├─ public/models/
+├─ pf-assets/
+├─ index.html
+├─ vite.config.ts
+└─ package.json
+```
+
+## Privacy and Terms
+
+- Privacy policy: privacy.md
+- Terms of service: terms.md
+
+## Contributing
 
 Contributions are welcome.
+Please open a Pull Request from a dedicated feature branch.
 
-1. Fork the repository.
-2. Create a new branch:
+## Contact
 
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Commit your changes:
-
-   ```bash
-   git commit -m "Add: Your feature"
-   ```
-4. Push to your branch:
-
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. Open a Pull Request.
-
-## 🗺️ Roadmap
-
-* Sound effects and background music
-* Leaderboard system
-* New themes and animations
-* Enhanced mobile experience
-* Multi-language support
-
-## 📜 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
-## 📫 Contact
-
-**Zain Antar** 
-Gmail: antar.zain1@gmail.com
+Zain Antar
+antar.zain1@gmail.com
