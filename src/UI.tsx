@@ -260,6 +260,9 @@ export function UI() {
             </div>
 
             <div className="text-center mt-10">
+              <p className="mb-4 inline-flex items-center rounded-full bg-io-dark text-white px-5 py-2 text-sm font-black tracking-wide shadow-lg">
+                The game is still under development.
+              </p>
               <h1 
                 className="text-7xl font-black text-io-blue mb-4 tracking-tighter"
               >
@@ -290,9 +293,6 @@ export function UI() {
                 <ShoppingCart size={24} />
                 {getTranslation(language, 'store')}
               </motion.button>
-              <p className="text-sm font-bold text-io-dark/70 text-center px-2">
-                The game is still under development.
-              </p>
             </div>
 
             <AnimatePresence>
