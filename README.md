@@ -18,13 +18,6 @@ Try the game here:
 * Fast and optimized performance
 * Runs directly in the browser with no installation required
 
-## 🛠️ Technologies Used
-
-* HTML5
-* CSS3
-* JavaScript
-* Vercel (Deployment)
-
 ## 🎮 How to Play
 
 1. Start the game.
