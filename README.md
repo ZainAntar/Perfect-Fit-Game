@@ -5,12 +5,12 @@
 Perfect Fit Game is a fast-paced 3D browser game focused on timing and shape matching.
 Resize your player block to pass through incoming wall holes, build combo, and collect diamonds.
 
-## Live Demo
+## Live Demo 🚀
 
 Play online:
 https://perfect-fit-game.vercel.app
 
-## Features
+## Features ✨
 
 - 3D gameplay powered by React Three Fiber
 - Reflex-based size-matching mechanic
@@ -34,7 +34,7 @@ https://perfect-fit-game.vercel.app
 - Tailwind CSS v4
 - Framer Motion
 
-## Gameplay
+## Gameplay 🎮
 
 1. Start from the main menu.
 2. Adjust the player block size to match each wall opening.
