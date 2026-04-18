@@ -25,19 +25,6 @@ Try the game here:
 * JavaScript
 * Vercel (Deployment)
 
-## 📁 Project Structure
-
-```
-Perfect-Fit-Game/
-│── index.html
-│── style.css
-│── script.js
-│── assets/
-│   ├── images/
-│   └── sounds/
-└── README.md
-```
-
 ## 🎮 How to Play
 
 1. Start the game.
