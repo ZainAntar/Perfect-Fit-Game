@@ -64,6 +64,7 @@ export function UI() {
   const [diamondPop, setDiamondPop] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [continueTimer, setContinueTimer] = useState(7);
+  const [showDevNotice, setShowDevNotice] = useState(false);
   
   useEffect(() => {
     if (showSplash) {
@@ -95,8 +96,19 @@ export function UI() {
     }
   }, [diamonds]);
 
+  useEffect(() => {
+    if (!showDevNotice) return;
+    const t = setTimeout(() => setShowDevNotice(false), 1800);
+    return () => clearTimeout(t);
+  }, [showDevNotice]);
+
   const handleSoundClick = () => {
     playSound('click');
+  };
+
+  const handleStoreClick = () => {
+    handleSoundClick();
+    setShowDevNotice(true);
   };
 
   const themes: { id: Theme; name: string; cost: number; color: string }[] = [
@@ -270,7 +282,7 @@ export function UI() {
                 {getTranslation(language, 'play')}
               </motion.button>
               <motion.button
-                onClick={() => { handleSoundClick(); setStatus('shop'); }}
+                onClick={handleStoreClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-white text-io-dark px-12 py-5 rounded-full font-black text-xl flex items-center justify-center gap-3 hover:bg-white/80 transition-colors shadow-lg"
@@ -278,7 +290,23 @@ export function UI() {
                 <ShoppingCart size={24} />
                 {getTranslation(language, 'store')}
               </motion.button>
+              <p className="text-sm font-bold text-io-dark/70 text-center px-2">
+                The game is still under development.
+              </p>
             </div>
+
+            <AnimatePresence>
+              {showDevNotice && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-io-dark text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg"
+                >
+                  The game is still under development.
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
 
