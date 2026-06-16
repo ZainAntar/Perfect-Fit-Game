@@ -29,4 +29,4 @@ Kullanıcı verilerini korumak için makul adımlar atıyoruz, ancak hiçbir yö
 Bu Gizlilik Politikasını güncelleyebiliriz. Değişiklikler burada yayınlanacaktır.
 
 ### 8. İletişim
-Herhangi bir sorunuz varsa, bizimle şu adresten iletişime geçin: zainantar08@gmail.com
+Herhangi bir sorunuz varsa, bizimle şu adresten iletişime geçin: antar.zain1@gmail.com
