@@ -4,7 +4,7 @@ import { Player, playerRef } from './Player';
 import { World } from './World';
 import { UI } from './UI';
 import { useGameStore } from './store';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, Suspense } from 'react';
 import * as THREE from 'three';
 
 const THEME_BG = {
@@ -127,7 +127,9 @@ export default function App() {
           castShadow={highQuality}
           shadow-mapSize={highQuality ? [1024, 1024] : [512, 512]}
         />
-        <Player />
+        <Suspense fallback={null}>
+          <Player />
+        </Suspense>
         <World />
       </Canvas>
       <UI />

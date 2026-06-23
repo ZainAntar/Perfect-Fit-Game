@@ -2,6 +2,7 @@ import { useRef, useEffect, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGameStore, Trail as TrailType } from './store';
 import * as THREE from 'three';
+import { useNormalizedObjGeometry } from './useNormalizedObjGeometry';
 
 // Pre-allocate to avoid GC in hot loops
 const _trailTempVec3 = new THREE.Vector3();
@@ -145,6 +146,7 @@ function CustomTrail({ type, playerMeshRef }: { type: TrailType; playerMeshRef: 
 export function Player() {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null);
+  const geometry = useNormalizedObjGeometry('/models/cube.obj');
   const status = useGameStore((state) => state.status);
   const theme = useGameStore((state) => state.theme);
   const trailType = useGameStore((state) => state.trail);
@@ -195,8 +197,7 @@ export function Player() {
   });
 
   const playerMesh = (
-    <mesh ref={meshRef} castShadow>
-      <boxGeometry args={[1, 1, 1]} />
+    <mesh ref={meshRef} geometry={geometry} castShadow>
       <meshStandardMaterial ref={materialRef} roughness={1} metalness={0} />
     </mesh>
   );
